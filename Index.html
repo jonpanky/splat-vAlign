@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .theDiv {
+            background-color: #008000;
+        }
+
+    </style>
+</head>
+    <body>
+        <section class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="theDiv">
+                        <h1>Vertically align a div next to an img-responsive</h1>
+                        <p>How do you vertically align the contents of a div next to a col that contains an image which is using a class of img-responsive</p>
+                    </div>
+
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <img src="Images/canvas-corner-640-640.jpg" alt="" class="img-responsive" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div id="vAlign" class="theDiv">
+                        <h1>The solution using jquery</h1>
+                        <p>How do you vertically align the contents of a div next to a col that contains an image which is using a class of img-responsive</p>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <img id="vAlignGet" src="Images/canvas-corner-640-640.jpg" alt="" class="img-responsive" />
+                </div>
+            </div>
+
+        </section>
+        <script src="Scripts/jquery-2.1.3.min.js"></script>
+        <script src="Scripts/bootstrap.min.js"></script>
+        <script src="Scripts/Splat.js"></script>
+        <script>
+            
+            function vAlign() {
+                var objSplat = new Splat();
+                var $imgOrDivToReSize = $('#vAlign');
+                var $imgOrDivToFindDimensions = $('#vAlignGet');
+
+                objSplat.vAlign($imgOrDivToReSize, $imgOrDivToFindDimensions, 1, function (e) {
+                    if (e == true) {//wait for call back if needed to ansyc code.
+                        
+                    }
+                });
+            }
+            
+
+            $(function () { 
+                vAlign();
+            });
+
+            $(window).resize(function () { // when viewport changes shape re-align
+                vAlign();
+            });           
+
+        </script>
+    </body>
+</html>
