@@ -11,7 +11,8 @@
 
                 cb(true);
             } catch (err) {
-                cb(false);
+                    console.error("Error resizing element: ", err);
+                    cb(false);
             }
 
         }
